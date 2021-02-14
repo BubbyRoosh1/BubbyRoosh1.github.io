@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta name="viewport" content="width-device-width">
+ <meta charset="UTF-8">
+ <title>bubby.me</title>
+ <link rel="icon" href="/images/favicon.png" type="image/png">
+ <link rel="stylesheet" type="text/css" href="/css/default.css">
+ </head>
+ <body>
+ <div id="header">
+  <h1 id="headerTitle">
+  <a href="/index.html">bubby.me</a> <span id="headerSubtitle">Simple website for my things and stuff</span>
+  </h1>
+ </div>
+<div id="menu">
+ <span class="thisdir"><a href="./index.html">/projects/</a></span>
+ <span class="sections">
+<a class="menunow" href="/projects/index.html">projects/</a>
+&nbsp;&nbsp;&nbsp;<a href="/index.html"><strong><em>home</em></strong></a>
+ </span>
+</div>
+<div id="main">
+ <div id="navbar">
+<ul>
+<li class="sidefile"><a href="../index.html">../</a></li>
+<li class="sidefile"><a href="baur.html">baur</a></li>
+<li class="sidefile"><a href="BubbyClient.html">BubbyClient</a></li>
+<li class="thispage"><a href="rargsxd.html">rargsxd</a></li>
+</ul>
+ </div>
+ <div id="content">
+<h1 id="rargsxd">rargsxd</h1>
+<h3 id="argument-parsing-crate">Argument parsing crate</h3>
+<p><a href="https://github.com/BubbyRoosh1/rargsxd">repo</a></p>
+<h3 id="about">About</h3>
+<p>Rust crate to parse arguments.</p>
+<h3 id="install">Install</h3>
+<ol type="1">
+<li>Add the crate to your Cargo.toml: <code>rargsxd = "0.1.0"</code></li>
+</ol>
+<h3 id="use">Use</h3>
+<p>Example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode rust"><code class="sourceCode rust"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="pp">rargsxd::</span><span class="op">*;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">fn</span> main() <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> <span class="kw">mut</span> args <span class="op">=</span> <span class="pp">ArgParser::</span>new(<span class="st">&quot;program_lol&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    args<span class="op">.</span>author(<span class="st">&quot;BubbyRoosh&quot;</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span>version(<span class="st">&quot;0.1.0&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span>copyright(<span class="st">&quot;Copyright (C) 2021 BubbyRoosh&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span>info(<span class="st">&quot;Example for simple arg parsing crate OwO&quot;</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span>require_args(<span class="cn">true</span>) <span class="co">// Makes the program print help and exit if there are no arguments passed</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span>args(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            <span class="pp">vec!</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                <span class="pp">Arg::</span>new(<span class="st">&quot;test&quot;</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span>short(<span class="st">&quot;t&quot;</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span>help(<span class="st">&quot;This is a test flag&quot;</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span>flag(<span class="cn">false</span>)<span class="op">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                <span class="pp">Arg::</span>new(<span class="st">&quot;monke&quot;</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span>short(<span class="st">&quot;m&quot;</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span>help(<span class="st">&quot;This is a test option&quot;</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                    <span class="op">.</span>option(<span class="st">&quot;oo&quot;</span>)<span class="op">,</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span>parse()<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">// If &quot;-t&quot; or &quot;--test&quot; is passed, this will run</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> args<span class="op">.</span>get_flag(<span class="st">&quot;test&quot;</span>)<span class="op">.</span>unwrap() <span class="op">{</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="pp">println!</span>(<span class="st">&quot;Hello, world!&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="co">// This will be &quot;oo&quot; unless &quot;--monke&quot; or &quot;-m&quot; is passed with a string argument</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="pp">println!</span>(<span class="st">&quot;{}&quot;</span><span class="op">,</span> args<span class="op">.</span>get_option(<span class="st">&quot;monke&quot;</span>)<span class="op">.</span>unwrap())<span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+ </div>
+</div>
+<div id="footer">
+ <div class="left">
+ Copyright (C) BubbyRoosh 2021
+ </div>
+ <div class="right">
+ bubbyroosh@bubby.me (sooner or later)
+ </div>
+</div>
+ </body>
+</html>
